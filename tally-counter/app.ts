@@ -4,7 +4,7 @@ const displayCount = document.getElementById(
 
 const main = document.getElementById("container") as HTMLDivElement | null;
 const btnsDiv = document.getElementById("btnsDiv") as HTMLDivElement | null;
-const count = document.querySelector("h1") as HTMLHeadingElement | null;
+const h1 = document.querySelector("h1") as HTMLHeadingElement | null;
 
 const incrementBtn = document.getElementById(
   "increment"
@@ -12,8 +12,6 @@ const incrementBtn = document.getElementById(
 const decrementBtn = document.getElementById(
   "decrement"
 ) as HTMLButtonElement | null;
-
-console.log(main);
 
 // STYLING USING TYPESCRIPT
 /*
@@ -40,8 +38,9 @@ if (displayCount != null) {
   displayCount.style.alignItems = "center";
 }
 
-if (count != null) {
-  count.style.fontSize = "4rem";
+if (h1 != null) {
+  h1.style.fontSize = "4rem";
+  h1.style.fontFamily = "'Oswald', sans-serif";
 }
 
 if (btnsDiv != null) {
@@ -51,7 +50,6 @@ if (btnsDiv != null) {
   btnsDiv.style.alignItems = "center";
   // btnsDiv.style.gap = "";
 }
-console.log(incrementBtn);
 
 if (incrementBtn != null && decrementBtn != null) {
   incrementBtn.style.padding = "1rem 2rem";
@@ -59,3 +57,19 @@ if (incrementBtn != null && decrementBtn != null) {
   incrementBtn.style.cursor = "pointer";
   decrementBtn.style.cursor = "pointer";
 }
+
+// ADD FUNCTIONALITY USING TYPESCRIPT
+
+let counter = 1;
+
+incrementBtn?.addEventListener("click", (e: MouseEvent) => {
+  if (h1 != null) {
+    h1.textContent = `${counter++}`;
+  }
+});
+
+decrementBtn?.addEventListener("click", (e: MouseEvent) => {
+  if (h1 != null) {
+    h1.textContent = `${counter--}`;
+  }
+});
